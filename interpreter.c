@@ -76,7 +76,7 @@ PART 1: Transform grammar
 
   PART 1.5: Follows Definitions
 
-    F(S)  = { EOL }
+    F(S)  = { }
     F(S') = { EOL }                   aka f(EOL)
     F(A)  = { EOL }                   aka F(S')
     F(Q)  = { EOL }                   aka F(S')
@@ -309,7 +309,7 @@ char E () {
   char r, c;
   // W
   if ( check(NOT) || check(LP) || check(LIT)
-       || check(T) || check(F) ) { // f(X)
+       || check(T) || check(F) ) { // f(W)
     r = W();
     if (!r) return r;
   } else {
@@ -318,7 +318,7 @@ char E () {
   // E'
   while( match(OR) ) {
     if ( check(NOT) || check(LP) || check(LIT) 
-	 || check(T) || check(F) ) { // f(X)
+	 || check(T) || check(F) ) { // f(W)
       c = W();
       if (!r) return r;
     } else {
